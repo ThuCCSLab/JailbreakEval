@@ -27,4 +27,4 @@ class OpenAITextClassificationService(TextClassificationService, service_type="o
         result = self.client.moderations.create(
             input=text, model=self.model, **predict_kwargs, **override_predict_kwargs
         )
-        return result.results[0].to_dict()
+        return result.results[0].model_dump()
