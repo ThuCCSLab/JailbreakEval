@@ -1,0 +1,13 @@
+openai>=1.0.0
+pytest
+google-api-python-client
+scikit-learn
+PyYAML
+click
+pandas
+numpy
+tqdm
+jinja2
+transformers
+torch
+accelerate

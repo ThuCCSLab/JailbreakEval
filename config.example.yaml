@@ -1,0 +1,28 @@
+perspective:
+  # Perspective API Configs
+  api_key: placeholder
+  base_url: https://perspective-proxy.example.com/
+openai:
+  # Arguments to create an OpenAI client
+  api_key: sk-placeholder
+  base_url: https://openai-proxy.example.com/v1
+transformers:
+  common:
+    # Arguments to create a `transformers` model
+    device_map: cuda:0
+    load_in_4bit: True
+  LibrAI/longformer-action-ro:
+    # Arguments to create a specific model (inherenting the `common` section)
+    name_or_path: /path/to/LibrAI/longformer-action-ro
+    device_map: cpu # Override device map to use CPU
+    # load_in_4bit: True is inherited from the `common` section and applied here
+  LibrAI/longformer-harmful-ro:
+    name_or_path: /path/to/LibrAI/longformer-harmful-ro
+  PKU-Alignment/beaver-dam-7b:
+    name_or_path: /path/to/PKU-Alignment/beaver-dam-7b
+  meta-llama/LlamaGuard-7b:
+    name_or_path: /path/to/meta-llama/LlamaGuard-7b
+  meta-llama/Meta-Llama-Guard-2-8B:
+    name_or_path: /path/to/meta-llama/Meta-Llama-Guard-2-8B
+  hubert233/GPTFuzz:
+    name_or_path: /path/to/hubert233/GPTFuzz

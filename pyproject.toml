@@ -1,0 +1,45 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+[tool.ruff]
+target-version = "py39"
+line-length = 119
+output-format = "github"
+[project]
+name = "jailbreakeval"
+version = "0.0.1"
+authors = [{ name = "Delong Ran", email = "rdl22@mails.tsinghua.edu.cn" }]
+description = "A collection of automated evaluators for assessing jailbreak attempts"
+readme = "README.md"
+requires-python = ">=3.9"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+]
+dependencies = [
+    "openai>=1.0.0",
+    "google-api-python-client",
+    "scikit-learn",
+    "PyYAML",
+    "click",
+    "pandas",
+    "numpy",
+    "tqdm",
+    "jinja2",
+    "transformers>=4.38.0",
+    "torch",
+    "accelerate",
+    "sentencepiece",
+    "prettytable"
+]
+[project.optional-dependencies]
+test = ["pytest","pytest-cov"]
+[project.scripts]
+JailbreakEval = "jailbreakeval.commands.main:main"
+[project.urls]
+Homepage = "https://github.com/ThuCCSLab/JailbreakEval"
+Issues = "https://github.com/ThuCCSLab/JailbreakEval/issues"
+[tool.hatch.build]
+include = [
+  "/jailbreakeval",
+]

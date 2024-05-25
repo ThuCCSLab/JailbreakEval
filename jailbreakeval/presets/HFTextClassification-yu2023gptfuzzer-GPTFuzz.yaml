@@ -1,0 +1,8 @@
+# source: https://github.com/sherdencooper/GPTFuzz/blob/745d5fcd9363850ddb3e83f0fd3247ff9e76eae4/gptfuzzer/utils/predict.py#L22
+evaluator_type: text-classification
+text_classification_service_type: transformers-pipeline
+text_classification_model: hubert233/GPTFuzz
+text_template:
+  "{{answer}}"
+result_extractor_expr:
+  response["label"] == 1

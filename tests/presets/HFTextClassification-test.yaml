@@ -1,0 +1,5 @@
+evaluator_type: text-classification
+text_classification_service_type: transformers-pipeline
+text_classification_model: example-classification-model
+text_template: "{{answer}}"
+result_extractor_expr: response["label"] == "LABEL_1"  

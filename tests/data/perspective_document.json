@@ -1,0 +1,463 @@
+{
+    "ownerDomain": "google.com",
+    "auth": {
+        "oauth2": {
+            "scopes": {
+                "https://www.googleapis.com/auth/userinfo.email": {
+                    "description": ""
+                }
+            }
+        }
+    },
+    "version_module": true,
+    "protocol": "rest",
+    "kind": "discovery#restDescription",
+    "title": "Perspective Comment Analyzer API",
+    "version": "v1alpha1",
+    "canonicalName": "Comment Analyzer",
+    "discoveryVersion": "v1",
+    "ownerName": "Google",
+    "description": "",
+    "basePath": "",
+    "batchPath": "batch",
+    "name": "commentanalyzer",
+    "rootUrl": "https://commentanalyzer.googleapis.com/",
+    "documentationLink": "https://support.perspectiveapi.com",
+    "mtlsRootUrl": "https://commentanalyzer.mtls.googleapis.com/",
+    "baseUrl": "https://commentanalyzer.googleapis.com/",
+    "resources": {
+        "comments": {
+            "methods": {
+                "analyze": {
+                    "id": "commentanalyzer.comments.analyze",
+                    "path": "v1alpha1/comments:analyze",
+                    "flatPath": "v1alpha1/comments:analyze",
+                    "httpMethod": "POST",
+                    "parameters": {},
+                    "parameterOrder": [],
+                    "request": {
+                        "$ref": "AnalyzeCommentRequest"
+                    },
+                    "response": {
+                        "$ref": "AnalyzeCommentResponse"
+                    },
+                    "scopes": [
+                        "https://www.googleapis.com/auth/userinfo.email"
+                    ],
+                    "description": ""
+                },
+                "suggestscore": {
+                    "id": "commentanalyzer.comments.suggestscore",
+                    "path": "v1alpha1/comments:suggestscore",
+                    "flatPath": "v1alpha1/comments:suggestscore",
+                    "httpMethod": "POST",
+                    "parameters": {},
+                    "parameterOrder": [],
+                    "request": {
+                        "$ref": "SuggestCommentScoreRequest"
+                    },
+                    "response": {
+                        "$ref": "SuggestCommentScoreResponse"
+                    },
+                    "scopes": [
+                        "https://www.googleapis.com/auth/userinfo.email"
+                    ],
+                    "description": ""
+                }
+            }
+        }
+    },
+    "parameters": {
+        "access_token": {
+            "type": "string",
+            "description": "",
+            "location": "query"
+        },
+        "alt": {
+            "type": "string",
+            "description": "",
+            "default": "json",
+            "enum": [
+                "json",
+                "media",
+                "proto"
+            ],
+            "enumDescriptions": [
+                "Responses with Content-Type of application/json",
+                "Media download with context-dependent Content-Type",
+                "Responses with Content-Type of application/x-protobuf"
+            ],
+            "location": "query"
+        },
+        "callback": {
+            "type": "string",
+            "description": "",
+            "location": "query"
+        },
+        "fields": {
+            "type": "string",
+            "description": "",
+            "location": "query"
+        },
+        "key": {
+            "type": "string",
+            "description": "",
+            "location": "query"
+        },
+        "oauth_token": {
+            "type": "string",
+            "description": "",
+            "location": "query"
+        },
+        "prettyPrint": {
+            "type": "boolean",
+            "description": "",
+            "default": "true",
+            "location": "query"
+        },
+        "quotaUser": {
+            "type": "string",
+            "description": "",
+            "location": "query"
+        },
+        "upload_protocol": {
+            "type": "string",
+            "description": "",
+            "location": "query"
+        },
+        "uploadType": {
+            "type": "string",
+            "description": "",
+            "location": "query"
+        },
+        "$.xgafv": {
+            "type": "string",
+            "description": "",
+            "enum": [
+                "1",
+                "2"
+            ],
+            "enumDescriptions": [
+                "v1 error format",
+                "v2 error format"
+            ],
+            "location": "query"
+        }
+    },
+    "schemas": {
+        "AnalyzeCommentRequest": {
+            "id": "AnalyzeCommentRequest",
+            "description": "",
+            "type": "object",
+            "properties": {
+                "comment": {
+                    "description": "",
+                    "$ref": "TextEntry"
+                },
+                "context": {
+                    "description": "",
+                    "$ref": "Context"
+                },
+                "languages": {
+                    "description": "",
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "requestedAttributes": {
+                    "description": "",
+                    "type": "object",
+                    "additionalProperties": {
+                        "$ref": "AttributeParameters"
+                    }
+                },
+                "doNotStore": {
+                    "description": "",
+                    "type": "boolean"
+                },
+                "clientToken": {
+                    "description": "",
+                    "type": "string"
+                },
+                "sessionId": {
+                    "description": "",
+                    "type": "string"
+                },
+                "communityId": {
+                    "description": "",
+                    "type": "string"
+                },
+                "spanAnnotations": {
+                    "description": "",
+                    "type": "boolean"
+                },
+                "dropUnsupportedAttributes": {
+                    "description": "",
+                    "type": "boolean"
+                }
+            }
+        },
+        "TextEntry": {
+            "id": "TextEntry",
+            "description": "",
+            "type": "object",
+            "properties": {
+                "text": {
+                    "description": "",
+                    "type": "string"
+                },
+                "type": {
+                    "description": "",
+                    "type": "string",
+                    "enumDescriptions": [
+                        "The content type is not specified. Text will be interpreted as plain text by default.",
+                        "Plain text.",
+                        "HTML."
+                    ],
+                    "enum": [
+                        "TEXT_TYPE_UNSPECIFIED",
+                        "PLAIN_TEXT",
+                        "HTML"
+                    ]
+                }
+            }
+        },
+        "Context": {
+            "id": "Context",
+            "description": "",
+            "type": "object",
+            "properties": {
+                "entries": {
+                    "description": "",
+                    "type": "array",
+                    "items": {
+                        "$ref": "TextEntry"
+                    }
+                },
+                "articleAndParentComment": {
+                    "description": "",
+                    "$ref": "ArticleAndParentComment"
+                }
+            }
+        },
+        "ArticleAndParentComment": {
+            "id": "ArticleAndParentComment",
+            "description": "",
+            "type": "object",
+            "properties": {
+                "article": {
+                    "description": "",
+                    "$ref": "TextEntry"
+                },
+                "parentComment": {
+                    "description": "",
+                    "$ref": "TextEntry"
+                }
+            }
+        },
+        "AttributeParameters": {
+            "id": "AttributeParameters",
+            "description": "",
+            "type": "object",
+            "properties": {
+                "scoreType": {
+                    "description": "",
+                    "type": "string",
+                    "enumDescriptions": [
+                        "Unspecified. Defaults to PROBABILITY scores if available, and otherwise RAW. Every model has a RAW score.",
+                        "Probability scores are in the range [0, 1] and indicate level of confidence in the attribute label.",
+                        "Standard deviation scores are in the range (-inf, +inf).",
+                        "Percentile scores are in the range [0, 1] and indicate the percentile of the raw score, normalized with a test dataset. This is not generally recommended, as the normalization is dependent on the dataset used, which may not match other usecases.",
+                        "Raw scores are the raw values from the model, and may take any value. This is primarily for debugging/testing, and not generally recommended."
+                    ],
+                    "enum": [
+                        "SCORE_TYPE_UNSPECIFIED",
+                        "PROBABILITY",
+                        "STD_DEV_SCORE",
+                        "PERCENTILE",
+                        "RAW"
+                    ]
+                },
+                "scoreThreshold": {
+                    "description": "",
+                    "type": "number",
+                    "format": "float"
+                }
+            }
+        },
+        "AnalyzeCommentResponse": {
+            "id": "AnalyzeCommentResponse",
+            "description": "",
+            "type": "object",
+            "properties": {
+                "attributeScores": {
+                    "description": "",
+                    "type": "object",
+                    "additionalProperties": {
+                        "$ref": "AttributeScores"
+                    }
+                },
+                "languages": {
+                    "description": "",
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "detectedLanguages": {
+                    "description": "",
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "clientToken": {
+                    "description": "",
+                    "type": "string"
+                }
+            }
+        },
+        "AttributeScores": {
+            "id": "AttributeScores",
+            "description": "",
+            "type": "object",
+            "properties": {
+                "spanScores": {
+                    "description": "",
+                    "type": "array",
+                    "items": {
+                        "$ref": "SpanScore"
+                    }
+                },
+                "summaryScore": {
+                    "description": "",
+                    "$ref": "Score"
+                }
+            }
+        },
+        "SpanScore": {
+            "id": "SpanScore",
+            "description": "",
+            "type": "object",
+            "properties": {
+                "begin": {
+                    "description": "",
+                    "type": "integer",
+                    "format": "int32"
+                },
+                "end": {
+                    "type": "integer",
+                    "format": "int32"
+                },
+                "score": {
+                    "description": "",
+                    "$ref": "Score"
+                }
+            }
+        },
+        "Score": {
+            "id": "Score",
+            "description": "",
+            "type": "object",
+            "properties": {
+                "value": {
+                    "description": "",
+                    "type": "number",
+                    "format": "float"
+                },
+                "type": {
+                    "description": "",
+                    "type": "string",
+                    "enumDescriptions": [
+                        "Unspecified. Defaults to PROBABILITY scores if available, and otherwise RAW. Every model has a RAW score.",
+                        "Probability scores are in the range [0, 1] and indicate level of confidence in the attribute label.",
+                        "Standard deviation scores are in the range (-inf, +inf).",
+                        "Percentile scores are in the range [0, 1] and indicate the percentile of the raw score, normalized with a test dataset. This is not generally recommended, as the normalization is dependent on the dataset used, which may not match other usecases.",
+                        "Raw scores are the raw values from the model, and may take any value. This is primarily for debugging/testing, and not generally recommended."
+                    ],
+                    "enum": [
+                        "SCORE_TYPE_UNSPECIFIED",
+                        "PROBABILITY",
+                        "STD_DEV_SCORE",
+                        "PERCENTILE",
+                        "RAW"
+                    ]
+                }
+            }
+        },
+        "SuggestCommentScoreRequest": {
+            "id": "SuggestCommentScoreRequest",
+            "description": "",
+            "type": "object",
+            "properties": {
+                "comment": {
+                    "description": "",
+                    "$ref": "TextEntry"
+                },
+                "context": {
+                    "description": "",
+                    "$ref": "Context"
+                },
+                "languages": {
+                    "description": "",
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "attributeScores": {
+                    "description": "",
+                    "type": "object",
+                    "additionalProperties": {
+                        "$ref": "AttributeScores"
+                    }
+                },
+                "communityId": {
+                    "description": "",
+                    "type": "string"
+                },
+                "sessionId": {
+                    "description": "",
+                    "type": "string"
+                },
+                "clientToken": {
+                    "description": "",
+                    "type": "string"
+                }
+            }
+        },
+        "SuggestCommentScoreResponse": {
+            "id": "SuggestCommentScoreResponse",
+            "description": "",
+            "type": "object",
+            "properties": {
+                "clientToken": {
+                    "description": "",
+                    "type": "string"
+                },
+                "requestedLanguages": {
+                    "description": "",
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "detectedLanguages": {
+                    "description": "",
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                }
+            }
+        }
+    },
+    "id": "commentanalyzer:v1alpha1",
+    "icons": {
+        "x16": "http://www.google.com/images/icons/product/search-16.gif",
+        "x32": "http://www.google.com/images/icons/product/search-32.gif"
+    },
+    "servicePath": "",
+    "revision": "20240414"
+}

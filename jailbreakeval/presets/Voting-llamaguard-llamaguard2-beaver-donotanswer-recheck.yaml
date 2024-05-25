@@ -1,0 +1,13 @@
+evaluator_type: voting
+weights:
+  - 1.0
+  - 1.0
+  - 1.0
+  - 0.3
+  - 1.0
+evaluator_configs:
+  - HFChat-inan2023llama-llamaguard
+  - HFChat-inan2023llama-llamaguard2
+  - HFTextClassification-ji2023beavertails-beaver-dam-7b
+  - HFTextClassification-wang2023donotanswer-longformer-harmful
+  - OpenAIChat-zhang2024intention-LLM
