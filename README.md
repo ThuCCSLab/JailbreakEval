@@ -9,6 +9,9 @@
 [![tests](https://github.com/ThuCCSLab/JailbreakEval/actions/workflows/tests.yaml/badge.svg)](https://github.com/ThuCCSLab/JailbreakEval/actions/workflows/tests.yaml)
 
 ## Introduction
+
+https://github.com/ThuCCSLab/JailbreakEval/assets/130946151/11a55bb4-97fa-4b9b-82d6-707b7fda540e
+
 Jailbreak is an attack that prompts a language model to give actionable responses to harmful behaviors, such as writing an offensive letter, providing detailed insturctions for creating a bomb. Evaluating the results of such attacks typically requires manual inspections by determining if the response fulfills some standards, which is impractical for large-scale analysis.
 
 As a result, most research on jailbreak attacks levarage automated tools to evaluate the result of their jailbreak attempts, and each of them offers some unique insights. However, due to the inherent semantic flexibility of natural language, there is no such automated evaluator that could fit in all contexts.
@@ -297,8 +300,10 @@ More evaluators on the way. Feel free to [request](https://github.com/ThuCCSLab/
         └── text_classification
 ```
 ### Designs
+![Architecture of `JailbreakEval`](./assets/arch.png)
 
-![arch](./assets/arch.png)
+In the framework of `JailbreakEval`, a *Jailbreak Evaluator* is responsible for assessing the effectiveness of a jailbreak attempt. Based on different evaluation paradigm, the *Jailbreak Evaluator* is divided into several subclasses, including the *String Matching Evaluator*, *Text Classification Evaluator*, *Chat Evaluator*, and *Voting Evaluator*. Some of them may consult external services to conduct their assessments (e.g., chat with OpenAI, call a Hugging Face classifier, ...). Each subclass comes with a suite of configurable parameters, enabling tailored evaluation strategies. The predefined configurations for existing evaluator instances are specified by *configuration presets*.
+
 ### Evaluator Categories
 `JailbreakEval` classifies the mainstream jailbreak evaluators into the following four types:
 - String Matching Evaluator: Identify string patterns in content to differentiate between safe and jailbroken material.
@@ -325,3 +330,5 @@ If you find `JailbreakEval` useful, please cite it as:
   year =         {2024}
 }
 ```
+
+[![Star History Chart](https://api.star-history.com/svg?repos=ThuCCSLab/JailbreakEval&type=Date)](https://star-history.com/#ThuCCSLab/JailbreakEval&Date)
