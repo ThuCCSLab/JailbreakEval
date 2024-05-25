@@ -27,9 +27,9 @@ jobs:
       run: python -m build
     - name: publish to Test PyPI
       uses: pypa/gh-action-pypi-publish@v1.8.14
+      continue-on-error: true
       with:
         repository-url: https://test.pypi.org/legacy/
-        skip-existing: true
     - name: Publish to PyPI
       if: github.event_name == 'release' && github.event.action == 'published'
       uses: pypa/gh-action-pypi-publish@v1.8.14
