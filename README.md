@@ -6,11 +6,11 @@
 
 `JailbreakEval` is a collection of automated evaluators for assessing jailbreak attempts.
 
-[![tests](https://github.com/ThuCCSLab/JailbreakEval/actions/workflows/tests.yaml/badge.svg)](https://github.com/ThuCCSLab/JailbreakEval/actions/workflows/tests.yaml)
+[![tests](https://github.com/ThuCCSLab/JailbreakEval/actions/workflows/tests.yaml/badge.svg)](https://github.com/ThuCCSLab/JailbreakEval/actions/workflows/tests.yaml) [![Page Views Count](https://badges.toozhao.com/badges/01HYS7AXHZQ8HX64H1K1F3379K/blue.svg)](https://github.com/ThuCCSLab/JailbreakEval)
 
 ## Introduction
 
-https://github.com/ThuCCSLab/JailbreakEval/assets/130946151/11a55bb4-97fa-4b9b-82d6-707b7fda540e
+https://github.com/ThuCCSLab/JailbreakEval/assets/26323729/4d1a6cbc-8ae5-4109-85c8-3ce47f658fdb
 
 Jailbreak is an attack that prompts a language model to give actionable responses to harmful behaviors, such as writing an offensive letter, providing detailed insturctions for creating a bomb. Evaluating the results of such attacks typically requires manual inspections by determining if the response fulfills some standards, which is impractical for large-scale analysis.
 
@@ -56,8 +56,8 @@ print(evaluation_result)   # Output: False
 ```
 
 More snippets are placed under the `example` folder, such as:
-- [Assess multiple jailbreak attempts by AutoDAN's Recheck evaluator](examples/autodan_recheck.py)
-- [Intergrate with EasyJailbreak's Cipher Attack workflow](examples/intergrate_with_easyjailbreak.py)
+- [Assess multiple jailbreak attempts by AutoDAN's Recheck evaluator](https://github.com/ThuCCSLab/JailbreakEval/blob/main/examples/autodan_recheck.py)
+- [Intergrate with EasyJailbreak's Cipher Attack workflow](https://github.com/ThuCCSLab/JailbreakEval/blob/main/examples/intergrate_with_easyjailbreak.py)
 
 ## Evaluate Your Jailbreak Attempts by CLI
 
@@ -75,7 +75,7 @@ Options:
   --help          Show this message and exit.
 ```
 
-The dataset should be organized as a UTF-8 `.csv` file, containing at least two columns `question` and `answer`. The `question` column lists the prohibited questions to be jailbreaked, and the `answer` column lists the answer extracted from the model. Additional column `label` can be included for assessing the agreement between the automatic evaluation and the manual labeling, marking `1` for a success jailbreak attempt and `0` for an unsuccessful one. See [data/example.csv](data/example.csv) for an example (adpated from [this JailbreakBench artifacts](https://github.com/JailbreakBench/artifacts/blob/main/attack-artifacts/GCG/white_box/vicuna-13b-v1.5.json))
+The dataset should be organized as a UTF-8 `.csv` file, containing at least two columns `question` and `answer`. The `question` column lists the prohibited questions to be jailbreaked, and the `answer` column lists the answer extracted from the model. Additional column `label` can be included for assessing the agreement between the automatic evaluation and the manual labeling, marking `1` for a success jailbreak attempt and `0` for an unsuccessful one. See [data/example.csv](https://github.com/ThuCCSLab/JailbreakEval/blob/main/data/example.csv) for an example (adpated from [this JailbreakBench artifacts](https://github.com/JailbreakBench/artifacts/blob/main/attack-artifacts/GCG/white_box/vicuna-13b-v1.5.json))
 
 This command would evaluate each jailbreak attempts by the specified evaluator(s) and report the following metrics:
 - Coverage: The ratio of evaluated jailbreak attempts. (as some evaluator may failed to evaluate certain samples)
@@ -156,7 +156,7 @@ JailbreakEval \
 
 Many evaluators has been incorporated into `JailbreakEval`. You can use them directly using `JailbreakEvaluator.from_preset()` or specifying their names in CLI.
 
-Their details can be found in the [jailbreakeval/presets](jailbreakeval/presets) directory for reference.
+Their details can be found in the [presets](https://github.com/ThuCCSLab/JailbreakEval/tree/main/jailbreakeval/presets) directory for reference.
 
 <details markdown='1'>
 
@@ -272,7 +272,7 @@ We have assess the quality of each evaluator based on the example dataset. The r
 | OpenAIChat-zhang2024intention-LLM                           | 0.74     | **1.00**   | 0.70      | 0.83 |
 </details>
 
-More evaluators on the way. Feel free to [request](https://github.com/ThuCCSLab/JailbreakEval/issues) or [contribute](./CONTRIBUTING.md) new evaluators.
+More evaluators on the way. Feel free to [request](https://github.com/ThuCCSLab/JailbreakEval/issues) or [contribute](https://github.com/ThuCCSLab/JailbreakEval/CONTRIBUTING.md) new evaluators.
 
 ## Project Structure
 
@@ -300,7 +300,7 @@ More evaluators on the way. Feel free to [request](https://github.com/ThuCCSLab/
         └── text_classification
 ```
 ### Designs
-![Architecture of `JailbreakEval`](./assets/arch.png)
+![Architecture of `JailbreakEval`](https://github.com/ThuCCSLab/JailbreakEval/raw/main/assets/arch.png)
 
 In the framework of `JailbreakEval`, a *Jailbreak Evaluator* is responsible for assessing the effectiveness of a jailbreak attempt. Based on different evaluation paradigm, the *Jailbreak Evaluator* is divided into several subclasses, including the *String Matching Evaluator*, *Text Classification Evaluator*, *Chat Evaluator*, and *Voting Evaluator*. Some of them may consult external services to conduct their assessments (e.g., chat with OpenAI, call a Hugging Face classifier, ...). Each subclass comes with a suite of configurable parameters, enabling tailored evaluation strategies. The predefined configurations for existing evaluator instances are specified by *configuration presets*.
 
@@ -316,9 +316,9 @@ In the framework of `JailbreakEval`, a *Jailbreak Evaluator* is responsible for 
 
 ## Contributing
 
-Your contributions are welcomed. Please read our [contribution guide](./CONTRIBUTING.md) for details.
+Your contributions are welcomed. Please read our [contribution guide](https://github.com/ThuCCSLab/JailbreakEval/blob/main/CONTRIBUTING.md) for details.
 
-To get on-board for develpment, please read the [development guide](./docs/DEVELOPMENT.md) for details.
+To get on-board for develpment, please read the [development guide](https://github.com/ThuCCSLab/JailbreakEval/blob/main/DEVELOPMENT.md) for details.
 
 ## Citation
 If you find `JailbreakEval` useful, please cite it as: 
