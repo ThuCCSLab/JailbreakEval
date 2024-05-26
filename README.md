@@ -318,7 +318,7 @@ In the framework of `JailbreakEval`, a *Jailbreak Evaluator* is responsible for 
 
 Your contributions are welcomed. Please read our [contribution guide](https://github.com/ThuCCSLab/JailbreakEval/blob/main/CONTRIBUTING.md) for details.
 
-To get on-board for develpment, please read the [development guide](https://github.com/ThuCCSLab/JailbreakEval/blob/main/DEVELOPMENT.md) for details.
+To get on-board for develpment, please read the [development guide](https://github.com/ThuCCSLab/JailbreakEval/blob/main/docs/DEVELOPMENT.md) for details.
 
 ## Citation
 If you find `JailbreakEval` useful, please cite it as: 
