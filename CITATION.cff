@@ -1,0 +1,49 @@
+# This CITATION.cff file was generated with cffinit.
+# Visit https://bit.ly/cffinit to generate yours today!
+
+cff-version: 1.2.0
+title: JailbreakEval
+message: >-
+  If you use this software, please cite it using the
+  metadata from this file.
+type: software
+authors:
+  - given-names: Delong
+    family-names: Ran
+  - name: JailbreakEval's Contributors
+identifiers:
+  - type: url
+    value: 'https://arxiv.org/abs/2406.09321'
+repository-code: 'https://github.com/ThuCCSLab/JailbreakEval'
+abstract: >-
+  JailbreakEval is a collection of automated evaluators for
+  assessing jailbreak attempts.
+keywords:
+  - Jailbreak
+  - Evaluation
+  - Content Safety
+  - Moderation
+license: MIT
+version: 0.0.1
+date-released: '2024-06-13'
+preferred-citation:
+  type: "article"
+  title: "JailbreakEval: An Integrated Toolkit for Evaluating Jailbreak Attempts Against Large Language Models"
+  authors:
+    - given-names: "Delong"
+      family-names: "Ran"
+    - given-names: "Jinyuan"
+      family-names: "Liu"
+    - given-names: "Yichen"
+      family-names: "Gong"
+    - given-names: "Jingyi"
+      family-names: "Zheng"
+    - given-names: "Xinlei"
+      family-names: "He"
+    - given-names: "Tianshuo"
+      family-names: "Cong"
+    - given-names: "Anyu"
+      family-names: "Wang"
+  identifiers:
+    - type: url
+      value: 'https://arxiv.org/abs/2406.09321'

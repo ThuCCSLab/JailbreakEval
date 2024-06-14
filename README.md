@@ -321,13 +321,15 @@ Your contributions are welcomed. Please read our [contribution guide](https://gi
 To get on-board for develpment, please read the [development guide](https://github.com/ThuCCSLab/JailbreakEval/blob/main/docs/DEVELOPMENT.md) for details.
 
 ## Citation
-If you find `JailbreakEval` useful, please cite it as: 
+If you find `JailbreakEval` useful, please cite our paper as: 
 ```
-@misc{jailbreakeval,
-  author =       {JailbreakEval's Contributors},
-  title =        {JailbreakEval: a collection of automated evaluators for assessing jailbreak attempts},
-  howpublished = {\url{https://github.com/ThuCCSLab/JailbreakEval}},
-  year =         {2024}
+@misc{ran2024jailbreakeval,
+      title={JailbreakEval: An Integrated Toolkit for Evaluating Jailbreak Attempts Against Large Language Models}, 
+      author={Delong Ran and Jinyuan Liu and Yichen Gong and Jingyi Zheng and Xinlei He and Tianshuo Cong and Anyu Wang},
+      year={2024},
+      eprint={2406.09321},
+      archivePrefix={arXiv},
+      primaryClass={id='cs.CR' full_name='Cryptography and Security' is_active=True alt_name=None in_archive='cs' is_general=False description='Covers all areas of cryptography and security including authentication, public key cryptosytems, proof-carrying code, etc. Roughly includes material in ACM Subject Classes D.4.6 and E.3.'}
 }
 ```
 
