@@ -6,7 +6,9 @@
 
 `JailbreakEval` is a collection of automated evaluators for assessing jailbreak attempts.
 
-[![tests](https://github.com/ThuCCSLab/JailbreakEval/actions/workflows/tests.yaml/badge.svg)](https://github.com/ThuCCSLab/JailbreakEval/actions/workflows/tests.yaml) [![Page Views Count](https://badges.toozhao.com/badges/01HYS7AXHZQ8HX64H1K1F3379K/blue.svg)](https://github.com/ThuCCSLab/JailbreakEval)
+[![tests status](https://github.com/ThuCCSLab/JailbreakEval/actions/workflows/tests.yaml/badge.svg)](https://github.com/ThuCCSLab/JailbreakEval/actions/workflows/tests.yaml)
+[![paper](https://img.shields.io/badge/arxiv-2406.09321-b31b1b)](https://arxiv.org/abs/2406.09321)
+[![page views count](https://badges.toozhao.com/badges/01HYS7AXHZQ8HX64H1K1F3379K/blue.svg)](https://github.com/ThuCCSLab/JailbreakEval)
 
 ## Introduction
 
@@ -322,7 +324,7 @@ To get on-board for develpment, please read the [development guide](https://gith
 
 ## Citation
 If you find `JailbreakEval` useful, please cite our paper as: 
-```
+```bibtex
 @misc{ran2024jailbreakeval,
       title={JailbreakEval: An Integrated Toolkit for Evaluating Jailbreak Attempts Against Large Language Models}, 
       author={Delong Ran and Jinyuan Liu and Yichen Gong and Jingyi Zheng and Xinlei He and Tianshuo Cong and Anyu Wang},
