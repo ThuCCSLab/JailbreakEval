@@ -14,7 +14,7 @@
 
 https://github.com/ThuCCSLab/JailbreakEval/assets/26323729/4d1a6cbc-8ae5-4109-85c8-3ce47f658fdb
 
-Jailbreak is an attack that prompts a language model to give actionable responses to harmful behaviors, such as writing an offensive letter, providing detailed insturctions for creating a bomb. Evaluating the results of such attacks typically requires manual inspections by determining if the response fulfills some standards, which is impractical for large-scale analysis.
+Jailbreak is an attack that prompts a language model to give actionable responses to harmful behaviors, such as writing an offensive letter, providing detailed instructions for creating a bomb. Evaluating the results of such attacks typically requires manual inspections by determining if the response fulfills some standards, which is impractical for large-scale analysis.
 
 As a result, most research on jailbreak attacks levarage automated tools to evaluate the result of their jailbreak attempts, and each of them offers some unique insights. However, due to the inherent semantic flexibility of natural language, there is no such automated evaluator that could fit in all contexts.
 
