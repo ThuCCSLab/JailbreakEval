@@ -19,11 +19,11 @@ class TextClassificationJailbreakEvaluator(
     def __init__(
         self,
         config: TextClassificationJailbreakEvaluatorConfig,
-        text_calssification_service: Optional[TextClassificationService] = None,
+        text_classification_service: Optional[TextClassificationService] = None,
         **kwargs,
     ) -> None:
         super().__init__(config, **kwargs)
-        self.text_calssification_service = text_calssification_service or TextClassificationServiceFactory.build(
+        self.text_classification_service = text_classification_service or TextClassificationServiceFactory.build(
             service_type=self.config.text_classification_service_type,
             model=self.config.text_classification_model,
             predict_kwargs=self.config.predict_kwargs,
@@ -35,5 +35,5 @@ class TextClassificationJailbreakEvaluator(
 
     def _eval_single(self, entry: EvaluationEntry, **kwargs) -> Optional[bool]:
         messages = self._format_text(self.config.text_template, entry)
-        response = self.text_calssification_service.predict(messages)
+        response = self.text_classification_service.predict(messages)
         return self.config.result_extractor(response)
