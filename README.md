@@ -73,7 +73,7 @@ Options:
   --dataset TEXT  Path to a CSV file containing jailbreak attempts.
                   [required]
   --config TEXT   The path to a YAML configuration file.
-  --output TEXT   The folder to save evaluation results.
+  --output TEXT   The path to save evaluation details in JSON.
   --help          Show this message and exit.
 ```
 

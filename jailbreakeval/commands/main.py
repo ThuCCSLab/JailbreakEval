@@ -124,7 +124,7 @@ def eval_metrics(labels, preds):
 @click.argument("evaluators", nargs=-1)
 @click.option("--dataset", "dataset_filepath", required=True, help="Path to a CSV file containing jailbreak attempts.")
 @click.option("--config", "config_filepath", help="The path to a YAML configuration file.")
-@click.option("--output", "output_filepath", help="The folder to save evaluation results.")
+@click.option("--output", "output_filepath", help="The path to save evaluation details in JSON.")
 def main(
     evaluators: Tuple[str],
     dataset_filepath: str,
