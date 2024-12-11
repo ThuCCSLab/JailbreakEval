@@ -6,7 +6,7 @@ from unittest.mock import patch
 from openai.types import CompletionUsage, ModerationCreateResponse
 from openai.types.chat import ChatCompletionMessage
 from openai.types.chat.chat_completion import ChatCompletion, Choice
-from openai.types.moderation import Moderation, Categories, CategoryScores
+from openai.types.moderation import Moderation, Categories, CategoryScores, CategoryAppliedInputTypes
 from transformers.pipelines import TextGenerationPipeline, TextClassificationPipeline
 from transformers import PreTrainedModel
 
@@ -83,7 +83,10 @@ def openai_moderations(response: Union[bool, List[bool]]):
             model="mock-model",
             results=[
                 Moderation(
-                    flagged=response, categories=Categories.construct(), category_scores=CategoryScores.construct()
+                    flagged=response,
+                    category_applied_input_types=CategoryAppliedInputTypes.construct(),
+                    categories=Categories.construct(),
+                    category_scores=CategoryScores.construct(),
                 )
             ],
         )
