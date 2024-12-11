@@ -42,13 +42,17 @@ def test_predict(mock_transformers_pipeline_call):
 
     service = TransformersPipelineChatService(model=MODEL)
     response = service.chat(MESSAGES)
-    mock_transformers_pipeline_call.assert_called_with(text_inputs=MESSAGES)
+    mock_transformers_pipeline_call.assert_called_with(
+        text_inputs=MESSAGES, return_full_text=False, continue_final_message=False
+    )
     assert isinstance(response, str)
     assert response == RESPONSE
 
     # override
     response = service.chat(MESSAGES, key="value")
-    mock_transformers_pipeline_call.assert_called_with(text_inputs=MESSAGES, key="value")
+    mock_transformers_pipeline_call.assert_called_with(
+        text_inputs=MESSAGES, key="value", return_full_text=False, continue_final_message=False
+    )
     assert isinstance(response, str)
     assert response == RESPONSE
 
@@ -56,13 +60,22 @@ def test_predict(mock_transformers_pipeline_call):
     service = TransformersPipelineChatService(model=MODEL, chat_kwargs={"hello": "world", "foo": "bar"})
     response = service.chat(MESSAGES)
 
-    mock_transformers_pipeline_call.assert_called_with(text_inputs=MESSAGES, hello="world", foo="bar")
+    mock_transformers_pipeline_call.assert_called_with(
+        text_inputs=MESSAGES, hello="world", foo="bar", return_full_text=False, continue_final_message=False
+    )
     assert isinstance(response, str)
     assert response == RESPONSE
 
     # gen_kwargs + override
-    response = service.chat(MESSAGES, foo="baz", key="value")
+    response = service.chat(MESSAGES, foo="baz", key="value", return_full_text=False, continue_final_message=False)
 
-    mock_transformers_pipeline_call.assert_called_with(text_inputs=MESSAGES, hello="world", foo="baz", key="value")
+    mock_transformers_pipeline_call.assert_called_with(
+        text_inputs=MESSAGES,
+        hello="world",
+        foo="baz",
+        key="value",
+        return_full_text=False,
+        continue_final_message=False,
+    )
     assert isinstance(response, str)
     assert response == RESPONSE

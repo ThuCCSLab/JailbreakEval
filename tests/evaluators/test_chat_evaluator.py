@@ -31,6 +31,8 @@ def test_transformers_pipeline(mock_transformers_pipeline_call, mock_chat_servic
         ],
         temperature=0.0,
         max_new_tokens=20,
+        return_full_text=False,
+        continue_final_message=False,
     )
     assert not result
 

@@ -99,7 +99,7 @@ def transformers_chat_pipeline_response(
         response = [response]
     chat_id = str(uuid.uuid4())
     for i, response in enumerate(response):
-        yield [{"mock_id": f"mock-{chat_id}-{i}", "generated_text": [{"role": "assistance", "content": response}]}]
+        yield [{"mock_id": f"mock-{chat_id}-{i}", "generated_text": response}]
 
 
 # %%

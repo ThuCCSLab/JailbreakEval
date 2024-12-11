@@ -13,7 +13,7 @@ class ChatService(ABC):
     def __init__(self, model: Optional[str] = None, chat_kwargs: Optional[Dict[str, Any]] = None, **kwargs) -> None:
         super().__init__()
         self.model = model
-        self.chat_kwargs = deepcopy(chat_kwargs) or {}
+        self.chat_kwargs = deepcopy(chat_kwargs or {})
 
     @classmethod
     def __init_subclass__(cls, service_type: Optional[str] = None, **kwargs):
