@@ -17,7 +17,7 @@ classifiers = [
     "License :: OSI Approved :: MIT License",
 ]
 dependencies = [
-    "openai>=1.0.0",
+    "openai>=1.49.0",
     "google-api-python-client",
     "scikit-learn",
     "PyYAML",
