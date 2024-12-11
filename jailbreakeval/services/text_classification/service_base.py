@@ -11,7 +11,7 @@ class TextClassificationService(ABC):
     def __init__(self, model: Optional[str] = None, predict_kwargs: Optional[Dict[str, Any]] = None, **kwargs) -> None:
         super().__init__()
         self.model = model
-        self.predict_kwargs = deepcopy(predict_kwargs) or {}
+        self.predict_kwargs = deepcopy(predict_kwargs or {})
 
     @classmethod
     def __init_subclass__(cls, service_type: Optional[str] = None, **kwargs) -> None:

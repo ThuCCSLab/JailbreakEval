@@ -19,6 +19,8 @@ class TransformersPipelineChatService(ChatService, service_type="transformers-pi
     ) -> None:
         self.pipeline = pipeline or pipeline_factory(task="text-generation", model=model, **pipeline_kwargs)
         super().__init__(self.pipeline.model.name_or_path, chat_kwargs)
+        self.chat_kwargs["return_full_text"] = False
+        self.chat_kwargs["continue_final_message"] = False
 
     def chat(self, conversation: Sequence[Message], **override_chat_kwargs) -> str:
         chat_kwargs = copy.deepcopy(self.chat_kwargs)
@@ -26,4 +28,4 @@ class TransformersPipelineChatService(ChatService, service_type="transformers-pi
             if k in chat_kwargs:
                 chat_kwargs.pop(k)
         result = self.pipeline(text_inputs=conversation, **chat_kwargs, **override_chat_kwargs)
-        return result[0]["generated_text"][-1]["content"]
+        return result[0]["generated_text"]
