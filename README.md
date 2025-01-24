@@ -242,10 +242,8 @@ Their details can be found in the [presets](https://github.com/ThuCCSLab/Jailbre
 | `Voting-llamaguard-llamaguard2-beaver-donotanswer-recheck`| A evaluator based on LLaMAGuard, LLaMAGuard2, Beaver Dam, DoNotAnswer's harmful evalutor, and GPT-3.5. |
 </details>  
 
-
+## Evaluator Results
 We have assess the quality of each evaluator based on the example dataset. The results are as follows:
-
-<details markdown='1'>
 
 <summary>Agreement Report</summary>
 
