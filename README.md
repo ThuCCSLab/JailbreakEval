@@ -186,7 +186,7 @@ Their details can be found in the [presets](https://github.com/ThuCCSLab/Jailbre
 |---|---|
 | `HFChat-inan2023llama-llamaguard`| LLaMAGuard |
 | `HFChat-inan2023llama-llamaguard2`| LLaMAGuard2 |
-| `HFChat-inan2024llama-llamaguard3`| LLaMAGuard3 |
+| `HFChat-dubey2024llama-llamaguard3`| LLaMAGuard3 |
 </details>
 
 <details markdown='1'>
