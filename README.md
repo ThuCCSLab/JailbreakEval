@@ -20,6 +20,9 @@
 ### **2024-12-11** - Version 0.0.2
 #### 🆕 **Adapted the framework to support the latest version of `transformers`**
 
+### **2024-12-11** - Version 0.0.2
+#### 🆕 **Adapted the framework to support the latest version of `transformers`**
+
 ### **2024-05-25** - Version 0.0.1
 #### 🚀 **Initial Release**
 - Launched `JailbreakEval`, an integrated toolkit for evaluating jailbreak attempts.
