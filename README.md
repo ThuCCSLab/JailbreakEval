@@ -239,63 +239,36 @@ Their details can be found in the [presets](https://github.com/ThuCCSLab/Jailbre
 
 | Evaluator Name | Note |
 |---|---|
-| `Voting-llamaguard-llamaguard2-beaver-donotanswer-recheck`| A evaluator based on LLaMAGuard, LLaMAGuard2, Beaver Dam, DoNotAnswer's harmful evalutor, and GPT-3.5. |
+| `Voting-llamaguard2-gptfuzz-beaver-OpenAI-recheck`| A evaluator based on LLaMAGuard2, GPTFUZZ, Beaver Dam, GPT-4o-2024-08-06. |
 </details>  
 
 ## Evaluator Results
 We have assess the quality of each evaluator based on the example dataset. The results are as follows:
 
-<summary>Agreement Report</summary>
-
-| name                                                        | accuracy | recall | precision | f1   |
-|-------------------------------------------------------------|----------|--------|-----------|------|
-| StringMatching-lapid2023open                                | 0.38     | 0.00   | 0.00      | 0.00 |
-| StringMatching-liu2024autodan-implementation                | 0.42     | 0.61   | 0.53      | 0.57 |
-| StringMatching-liu2024autodan-keyword                       | 0.54     | 0.84   | 0.59      | 0.69 |
-| StringMatching-zhang2024intention-keyword                   | 0.52     | 0.84   | 0.58      | 0.68 |
-| StringMatching-zou2023universal-closed                      | 0.52     | 0.84   | 0.58      | 0.68 |
-| StringMatching-zou2023universal-demo                        | 0.64     | **1.00**   | 0.63      | 0.78 |
-| StringMatching-zou2023universal-individual                  | 0.64     | **1.00**   | 0.63      | 0.78 |
-| StringMatching-zou2023universal-transfer                    | 0.54     | 0.84   | 0.59      | 0.69 |
-| StringMatching-zou2023universal                             | 0.64     | **1.00**   | 0.63      | 0.78 |
-| HFChat-inan2023llama-llamaguard2                            | 0.70     | 0.97   | 0.68      | 0.80 |
-| HFChat-inan2023llama-llamaguard                             | **0.90**     | 0.94   | 0.91      | **0.92** |
-| HFTextClassification-ji2023beavertails-beaver-dam-7b        | 0.80     | 0.90   | 0.80      | 0.85 |
-| HFTextClassification-wang2023donotanswer-longformer-action  | 0.62     | 0.90   | 0.64      | 0.75 |
-| HFTextClassification-wang2023donotanswer-longformer-harmful | 0.64     | 0.94   | 0.64      | 0.76 |
-| HFTextClassification-yu2023gptfuzzer-GPTFuzz                | 0.66     | 0.68   | 0.75      | 0.71 |
-| OpenAITextClassification-flagged-answer                     | 0.56     | 0.29   | **1.00**      | 0.45 |
-| PerspectiveTextClassification-toxicity.yaml                 | 0.40     | 0.03   | **1.00**      | 0.06 |
-| Voting-llamaguard-llamaguard2-beaver-dan-recheck.yaml       | 0.76     | **1.00**   | 0.72      | 0.84 |
-| OpenAIChat-liu2024autodan-Recheck                           | 0.46     | 0.68   | 0.55      | 0.61 |
-| OpenAIChat-qi2023fine-Meta                                  | 0.72     | **1.00**   | 0.69      | 0.82 |
-| OpenAIChat-qi2023fine-OpenAI                                | 0.70     | 0.97   | 0.68      | 0.80 |
-| OpenAIChat-zhang2024intention-LLM                           | 0.74     | **1.00**   | 0.70      | 0.83 |
+| Evaluator Name                            | Safe-RLHF (Accuracy/Recall/Precision/F1) | JAILJUDGE (Accuracy/Recall/Precision/F1) |
+|-------------------------------------------|-----------------------------|-----------------------------|
+| StringMatch-lapid2023open                 | 0.42 / 0.00 / 1.00 / 0.00   | 0.70 / 0.04 / 0.81 / 0.08   |
+| StringMatch-liu2024autodan-implementation | 0.61 / 0.85 / 0.62 / 0.71   | 0.74 / 0.75 / 0.56 / 0.64   |
+| StringMatch-liu2024autodan-keyword        | 0.60 / 0.95 / 0.59 / 0.73   | 0.75 / 0.85 / 0.56 / 0.68   |
+| StringMatch-liu2024autodan                | 0.60 / 0.95 / 0.59 / 0.73   | 0.75 / 0.85 / 0.56 / 0.68   |
+| StringMatch-zhang2024intention-keyword    | 0.60 / 0.95 / 0.59 / 0.73   | 0.75 / 0.86 / 0.57 / 0.68   |
+| StringMatch-zou2023universal-closed       | 0.59 / 0.95 / 0.59 / 0.73   | 0.75 / 0.86 / 0.57 / 0.68   |
+| StringMatch-zou2023universal-demo         | 0.59 / 0.99 / 0.59 / 0.74   | 0.74 / 0.94 / 0.55 / 0.70   |
+| StringMatch-zou2023universal-individual   | 0.60 / 0.99 / 0.59 / 0.74   | 0.72 / 0.94 / 0.54 / 0.68   |
+| StringMatch-zou2023universal-transfer     | 0.60 / 0.95 / 0.59 / 0.73   | 0.75 / 0.85 / 0.56 / 0.68   |
+| StringMatch-zou2023universal              | 0.59 / 0.99 / 0.58 / 0.74   | 0.72 / 0.94 / 0.53 / 0.68   |
+| StringMatch-allsubstringh                 | 0.62 / 0.88 / 0.62 / 0.73   | 0.75 / 0.74 / 0.58 / 0.65   |
+| OpenAIChat-liu2024autodan-Recheck         | 0.64 / 0.92 / 0.63 / 0.75   | 0.82 / 0.56 / 0.81 / 0.66   |
+| OpenAIChat-qi2023fine-OpenAI              | 0.79 / 0.69 / 0.93 / 0.79   | 0.90 / 0.75 / 0.92 / 0.83   |
+| HFChat-inan2023llama-llamaguard2          | 0.75 / 0.61 / 0.93 / 0.73   | 0.84 / 0.79 / 0.72 / 0.76   |
+| HFChat-inan2023llama-llamaguard           | 0.71 / 0.54 / 0.92 / 0.68   | 0.74 / 0.29 / 0.73 / 0.41   |
+| HFChat-dubey2024llama-llamaguard3         | 0.71 / 0.52 / 0.96 / 0.68   | 0.82 / 0.81 / 0.67 / 0.74   |
+| HFTextClassification-ji2023beavertails-7b | 0.89 / 0.87 / 0.93 / 0.90   | 0.82 / 0.58 / 0.81 / 0.68   |
+| HFTextClassification-GPTFuzz              | 0.71 / 0.57 / 0.88 / 0.69   | 0.82 / 0.59 / 0.78 / 0.67   |
+| OpenAITextClassification-flagged-answer   | 0.47 / 0.09 / 0.93 / 0.16   | 0.68 / 0.03 / 0.46 / 0.06   |
+| PerspectiveTextClassification-toxicity    | 0.51 / 0.19 / 0.80 / 0.31   | 0.68 / 0.03 / 0.56 / 0.06   |
+| Voting                                    | 0.81 / 0.70 / 0.95 / 0.81   | 0.86 / 0.70 / 0.82 / 0.76   |
 </details>
-| Evaluator Name                                                    | Accuracy (Safe-RLHF) | Recall (Safe-RLHF) | Precision (Safe-RLHF) | F1 (Safe-RLHF) | Accuracy (JAILJUDGE) | Recall (JAILJUDGE) | Precision (JAILJUDGE) | F1 (JAILJUDGE) |
-|-------------------------------------------------------------------|-----------------------|---------------------|------------------------|----------------|-----------------------|--------------------|------------------------|----------------|
-| StringMatch-lapid2023open                                        | 0.42                  | 0.00                | 1.00                   | 0.00           | 0.70                  | 0.04               | 0.81                   | 0.08           |
-| StringMatch-liu2024autodan-implementation                        | 0.61                  | 0.85                | 0.62                   | 0.71           | 0.74                  | 0.75               | 0.56                   | 0.64           |
-| StringMatch-liu2024autodan-keyword                               | 0.60                  | 0.95                | 0.59                   | 0.73           | 0.75                  | 0.85               | 0.56                   | 0.68           |
-| StringMatch-liu2024autodan                                       | 0.60                  | 0.95                | 0.59                   | 0.73           | 0.75                  | 0.85               | 0.56                   | 0.68           |
-| StringMatch-zhang2024intention-keyword                           | 0.60                  | 0.95                | 0.59                   | 0.73           | 0.75                  | 0.86               | 0.57                   | 0.68           |
-| StringMatch-zou2023universal-closed                              | 0.59                  | 0.95                | 0.59                   | 0.73           | 0.75                  | 0.86               | 0.57                   | 0.68           |
-| StringMatch-zou2023universal-demo                                | 0.59                  | 0.99                | 0.59                   | 0.74           | 0.74                  | 0.94               | 0.55                   | 0.70           |
-| StringMatch-zou2023universal-individual                          | 0.60                  | 0.99                | 0.59                   | 0.74           | 0.72                  | 0.94               | 0.54                   | 0.68           |
-| StringMatch-zou2023universal-transfer                            | 0.60                  | 0.95                | 0.59                   | 0.73           | 0.75                  | 0.85               | 0.56                   | 0.68           |
-| StringMatch-zou2023universal                                     | 0.59                  | 0.99                | 0.58                   | 0.74           | 0.72                  | 0.94               | 0.53                   | 0.68           |
-| StringMatch-allsubstringh                                        | 0.62                  | 0.88                | 0.62                   | 0.73           | 0.75                  | 0.74               | 0.58                   | 0.65           |
-| OpenAIChat-liu2024autodan-Recheck                                | 0.64                  | 0.92                | 0.63                   | 0.75           | 0.82                  | 0.56               | 0.81                   | 0.66           |
-| OpenAIChat-qi2023fine-OpenAI                                     | 0.79                  | 0.69                | 0.93                   | 0.79           | 0.90                  | 0.75               | 0.92                   | 0.83           |
-| HFChat-inan2023llama-llamaguard2                                 | 0.75                  | 0.61                | 0.93                   | 0.73           | 0.84                  | 0.79               | 0.72                   | 0.76           |
-| HFChat-inan2023llama-llamaguard                                  | 0.71                  | 0.54                | 0.92                   | 0.68           | 0.74                  | 0.29               | 0.73                   | 0.41           |
-| HFChat-dubey2024llama-llamaguard3                                | 0.71                  | 0.52                | 0.96                   | 0.68           | 0.82                  | 0.81               | 0.67                   | 0.74           |
-| HFTextClassification-ji2023beavertails-beaver-7b                 | 0.89                  | 0.87                | 0.93                   | 0.90           | 0.82                  | 0.58               | 0.81                   | 0.68           |
-| HFTextClassification-yu2023gptfuzzer-GPTFuzz                     | 0.71                  | 0.57                | 0.88                   | 0.69           | 0.82                  | 0.59               | 0.78                   | 0.67           |
-| OpenAITextClassification-flagged-answer                          | 0.47                  | 0.09                | 0.93                   | 0.16           | 0.68                  | 0.03               | 0.46                   | 0.06           |
-| PerspectiveTextClassification-toxicity                           | 0.51                  | 0.19                | 0.80                   | 0.31           | 0.68                  | 0.03               | 0.56                   | 0.06           |
-| Voting~(\cite{yu2023gptfuzzer}\&\cite{metallamaguard2}\&\cite{ji2023beavertails}\&\cite{liu2024autodan}\&\cite{qi2023visual}) | 0.81                  | 0.70                | 0.95                   | 0.81           | 0.86                  | 0.70               | 0.82                   | 0.76           |
-
 More evaluators on the way. Feel free to [request](https://github.com/ThuCCSLab/JailbreakEval/issues) or [contribute](https://github.com/ThuCCSLab/JailbreakEval/CONTRIBUTING.md) new evaluators.
 
 ## Project Structure
