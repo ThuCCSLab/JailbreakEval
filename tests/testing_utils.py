@@ -8,7 +8,8 @@ from openai.types.chat import ChatCompletionMessage
 from openai.types.chat.chat_completion import ChatCompletion, Choice
 from openai.types.moderation import Moderation, Categories, CategoryScores, CategoryAppliedInputTypes
 from transformers.pipelines import TextGenerationPipeline, TextClassificationPipeline
-from transformers import PreTrainedModel
+from transformers import PreTrainedModel, PreTrainedTokenizer, PretrainedConfig
+from transformers.tokenization_utils_base import BatchEncoding
 
 patch_openai_chat_create = patch("openai.resources.chat.Completions.create")
 
@@ -31,11 +32,22 @@ patch_transformers_classification_pipeline_call = patch(
 class DummyModel(PreTrainedModel):
     def __init__(self):
         self.name_or_path = "dummy"
+        self.config = PretrainedConfig(max_position_embeddings=2048)
+
+
+class DummyTokenizer(PreTrainedTokenizer):
+    def __init__(self):
+        self.name_or_path = "dummy"
+        self.model_max_length = 2048
+
+    def __call__(self, text):
+        return BatchEncoding(data={"input_ids": list(text)})
 
 
 class DummyTextClassificationPipeline(TextClassificationPipeline):
     def __init__(self):
         self.model = DummyModel()
+        self.tokenizer = DummyTokenizer()
 
     def __call__(self, inputs, **kwargs):
         return super().__call__(inputs=inputs, **kwargs)

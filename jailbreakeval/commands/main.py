@@ -189,10 +189,11 @@ def main(
                 }
 
             del evaluator
-            gc.collect()
-            torch.cuda.empty_cache()
         except Exception as e:
             logger.error(f"Failed to evaluate {evaluator_id}: {e}")
+        finally:
+            gc.collect()
+            torch.cuda.empty_cache()
 
     if output_filepath:
         with open(output_filepath, "w") as f:
