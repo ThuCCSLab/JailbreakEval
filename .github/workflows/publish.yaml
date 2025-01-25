@@ -30,6 +30,9 @@ jobs:
       continue-on-error: true
       with:
         repository-url: https://test.pypi.org/legacy/
+        attestations: false
     - name: Publish to PyPI
       if: github.event_name == 'release' && github.event.action == 'published'
       uses: pypa/gh-action-pypi-publish@v1.12.4
+      with:
+        attestations: false
