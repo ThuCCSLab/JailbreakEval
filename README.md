@@ -18,8 +18,7 @@
 - Test the evaluators on new datasets.
 
 ### **2024-12-11** - Version 0.0.2
-#### 🆕 **New Features**
-- Adapted the framework to support the latest version of `Transformers`.
+#### 🆕 **Adapted the framework to support the latest version of `Transformers`**
 
 ### **2024-05-25** - Version 0.0.1
 #### 🚀 **Initial Release**
