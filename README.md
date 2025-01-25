@@ -14,7 +14,7 @@
 
 ### **2025-1-24** 
 #### 🔧 **New Features**
-- Added support for two new datasets: [`Safe-RLHF`](https://github.com/ThuCCSLab/JailbreakEval/blob/main/data/Safe-RLHFmini.csv) and [`JAILJUDGE`](https://github.com/ThuCCSLab/JailbreakEval/blob/main/data/JAILJUDGEmini.csv).
+- Added support for two new datasets: [`Safe-RLHFmini`](https://github.com/ThuCCSLab/JailbreakEval/blob/main/data/Safe-RLHFmini.csv) and [`JAILJUDGEmini`](https://github.com/ThuCCSLab/JailbreakEval/blob/main/data/JAILJUDGEmini.csv). For the original details, please visit [Safe-RLHF](https://github.com/PKU-Alignment/safe-rlhf) and [JAILJUDGE](https://github.com/PKU-Alignment/safe-rlhf).
 - Test the evaluators on new datasets.
 
 ### **2024-12-11** - Version 0.0.2
