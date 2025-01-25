@@ -14,11 +14,11 @@
 
 ### **2025-1-24** 
 #### 🔧 **New Features**
-- Added support for two new datasets: [`Safe-RLHF`](https://github.com/ThuCCSLab/JailbreakEval/blob/jinyuanliu1-patch-1/data/Safe-RLHFmini.csv) and [`JAILJUDGE`](https://github.com/ThuCCSLab/JailbreakEval/blob/jinyuanliu1-patch-1/data/JAILJUDGEmini.csv).
+- Added support for two new datasets: [`Safe-RLHF`](https://github.com/ThuCCSLab/JailbreakEval/blob/main/data/Safe-RLHFmini.csv) and [`JAILJUDGE`](https://github.com/ThuCCSLab/JailbreakEval/blob/main/data/JAILJUDGEmini.csv).
 - Test the evaluators on new datasets.
 
 ### **2024-12-11** - Version 0.0.2
-#### 🆕 **Adapted the framework to support the latest version of `Transformers`**
+#### 🆕 **Adapted the framework to support the latest version of `transformers`**
 
 ### **2024-05-25** - Version 0.0.1
 #### 🚀 **Initial Release**
@@ -276,11 +276,11 @@ We have assess the quality of each evaluator based on the example dataset. The r
 | HFChat-inan2023llama-llamaguard2          | 0.75 / 0.61 / 0.93 / 0.73   | 0.84 / 0.79 / 0.72 / 0.76   |
 | HFChat-inan2023llama-llamaguard           | 0.71 / 0.54 / 0.92 / 0.68   | 0.74 / 0.29 / 0.73 / 0.41   |
 | HFChat-dubey2024llama-llamaguard3         | 0.71 / 0.52 / 0.96 / 0.68   | 0.82 / 0.81 / 0.67 / 0.74   |
-| HFTextClassification-ji2023beavertails-7b | 0.89 / 0.87 / 0.93 / 0.90   | 0.82 / 0.58 / 0.81 / 0.68   |
-| HFTextClassification-GPTFuzz              | 0.71 / 0.57 / 0.88 / 0.69   | 0.82 / 0.59 / 0.78 / 0.67   |
+| HFTextClassification-ji2023beavertails-beaver-dam-7b | 0.89 / 0.87 / 0.93 / 0.90   | 0.82 / 0.58 / 0.81 / 0.68   |
+| HFTextClassification-yu2023gptfuzzer-GPTFuzz              | 0.71 / 0.57 / 0.88 / 0.69   | 0.82 / 0.59 / 0.78 / 0.67   |
 | OpenAITextClassification-flagged-answer   | 0.47 / 0.09 / 0.93 / 0.16   | 0.68 / 0.03 / 0.46 / 0.06   |
 | PerspectiveTextClassification-toxicity    | 0.51 / 0.19 / 0.80 / 0.31   | 0.68 / 0.03 / 0.56 / 0.06   |
-| Voting                                    | 0.81 / 0.70 / 0.95 / 0.81   | 0.86 / 0.70 / 0.82 / 0.76   |
+| Voting-llamaguard2-gptfuzz-beaver-OpenAI-recheck                                    | 0.81 / 0.70 / 0.95 / 0.81   | 0.86 / 0.70 / 0.82 / 0.76   |
 </details>
 More evaluators on the way. Feel free to [request](https://github.com/ThuCCSLab/JailbreakEval/issues) or [contribute](https://github.com/ThuCCSLab/JailbreakEval/CONTRIBUTING.md) new evaluators.
 
