@@ -24,5 +24,18 @@ class TransformersPipelineTextClassificationService(TextClassificationService, s
                 predict_kwargs.pop(k)
         if not isinstance(text, str):
             raise NotImplementedError("Do not support batch predict.")
+        
+        # make sure input length within context length
+        input_len = len(self.pipeline.tokenizer(text).input_ids)
+        tokenizer_max_length = self.pipeline.tokenizer.model_max_length
+
+        model_max_length = self.pipeline.model.config.max_position_embeddings
+
+        if input_len > tokenizer_max_length:
+            return {"error": f"input length is longer than tokenizer's max length ({input_len} > {tokenizer_max_length})."}
+        
+        if input_len > model_max_length:
+            return {"error": f"input length is longer than model's max length ({input_len} > {tokenizer_max_length})."}
+        
         result = self.pipeline(inputs=text, **predict_kwargs, **override_predict_kwargs)
         return result[0]
