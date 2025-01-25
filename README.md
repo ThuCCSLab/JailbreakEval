@@ -14,7 +14,7 @@
 
 ### **2025-1-24** 
 #### 🔧 **New Features**
-- Added support for two new datasets: `Safe-RLHF` and `JAILJUDGE`.
+- Added support for two new datasets: [`Safe-RLHF`](https://github.com/ThuCCSLab/JailbreakEval/blob/jinyuanliu1-patch-1/data/Safe-RLHFmini.csv) and [`JAILJUDGE`](https://github.com/ThuCCSLab/JailbreakEval/blob/jinyuanliu1-patch-1/data/JAILJUDGEmini.csv).
 - Test the evaluators on new datasets.
 
 ### **2024-12-11** - Version 0.0.2
