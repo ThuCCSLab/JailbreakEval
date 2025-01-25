@@ -12,6 +12,28 @@
 
 ## Introduction
 
+### **2025-01-25** - Version 1.1.0
+#### 🆕 **New Features**
+- Introduced the `Voting` evaluator, combining the top five evaluators for improved accuracy and flexibility.
+- Added support for two new datasets: `Safe-RLHF` and `JAILJUDGE`.
+- Integrated an ensemble evaluation mode for more robust and consistent performance benchmarking.
+
+#### 🔧 **Improvements**
+- Enhanced `String Matching` evaluators with additional keyword configurations.
+- Optimized the evaluation framework for faster processing of large datasets.
+- Improved UI for easier customization of evaluation parameters.
+
+#### 🐞 **Bug Fixes**
+- Fixed incorrect recall calculation in specific evaluators.
+- Resolved compatibility issues with Python 3.11 and updated dependency requirements.
+
+### **2024-12-15** - Version 1.0.0
+#### 🚀 **Initial Release**
+- Launched `JailbreakEval`, an integrated safety evaluator toolkit.
+- Included 21 evaluators across categories: `String Matching`, `Text Classification`, and `Chat-based` evaluators.
+- Provided support for benchmarking on `Safe-RLHF` and `JAILJUDGE` datasets.
+- Designed a modular API for seamless integration of custom evaluators.
+
 https://github.com/ThuCCSLab/JailbreakEval/assets/26323729/4d1a6cbc-8ae5-4109-85c8-3ce47f658fdb
 
 Jailbreak is an attack that prompts a language model to provide actionable responses to harmful behaviors, such as writing offensive content or creating a bomb. Evaluating such attacks often requires manual inspection, which is impractical for large-scale analysis.
