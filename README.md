@@ -12,13 +12,11 @@
 
 ## Introduction
 
-### **2025-1-24** 
+### **2025-01-25** - Version 0.0.3
 #### 🔧 **New Features**
 - Added support for two new datasets: [`Safe-RLHFmini`](https://github.com/ThuCCSLab/JailbreakEval/blob/main/data/Safe-RLHFmini.csv) and [`JAILJUDGEmini`](https://github.com/ThuCCSLab/JailbreakEval/blob/main/data/JAILJUDGEmini.csv). For the original details, please visit [Safe-RLHF](https://github.com/PKU-Alignment/safe-rlhf) and [JAILJUDGE](https://github.com/PKU-Alignment/safe-rlhf).
-- Test the evaluators on new datasets.
-
-### **2024-12-11** - Version 0.0.2
-#### 🆕 **Adapted the framework to support the latest version of `transformers`**
+- Add support for LlamaGuard3.
+- Add evaluation results on the new dataset.
 
 ### **2024-12-11** - Version 0.0.2
 #### 🆕 **Adapted the framework to support the latest version of `transformers`**
