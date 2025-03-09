@@ -92,11 +92,24 @@ def load_csv_dataset(filepath):
 
     if "label" not in dataset:
         dataset["label"] = pd.NA
-        dataset["label"] = dataset["label"].astype("boolean")
     return dataset
 
 
 def eval_metrics(labels, preds):
+    if all(pd.isna(labels)):
+        preds = pd.Series(preds, dtype="boolean")
+        non_na_preds = ~preds.isna()
+        coverage = non_na_preds.mean()
+        jailbreak_ratio = preds[non_na_preds].mean()
+        return {
+            "coverage": coverage,
+            "jailbreak_ratio": jailbreak_ratio,
+            "labelled_coverage": 0.00,
+            "accuracy": "N/A",
+            "recall": "N/A",
+            "precision": "N/A",
+            "f1": "N/A",
+        }
     labels = pd.Series(labels, dtype="boolean")
     preds = pd.Series(preds, dtype="boolean")
     non_na_preds = ~preds.isna()
@@ -137,19 +150,19 @@ def main(
         config = {}
 
     dataset = load_csv_dataset(dataset_filepath)
-
     labels = dataset["label"].astype("O").replace(pd.NA, None).to_list()
-
-    results = {
-        "Annotation": {
-            "preds": labels,
-            **eval_metrics(
-                pd.Series([None] * len(dataset["label"]), dtype="boolean"),
-                dataset["label"],
-            ),
+    if not dataset["label"].isna().all():
+        results = {
+            "Annotation": {
+                "preds": labels,
+                **eval_metrics(
+                    pd.Series([None] * len(dataset["label"]), dtype="boolean"),
+                    dataset["label"],
+                ),
+            }
         }
-    }
-
+    else:
+        results = {}
     for evaluator_id in evaluators:
         try:
             evaluator = load_evaluator(evaluator_id, config)
@@ -189,11 +202,10 @@ def main(
                 }
 
             del evaluator
-        except Exception as e:
-            logger.error(f"Failed to evaluate {evaluator_id}: {e}")
-        finally:
             gc.collect()
             torch.cuda.empty_cache()
+        except Exception as e:
+            logger.error(f"Failed to evaluate {evaluator_id}: {e}")
 
     if output_filepath:
         with open(output_filepath, "w") as f:
@@ -209,13 +221,14 @@ def main(
             + [v.get("time_ms", "N/A"), v.get("prompt_tokens_usage", "N/A"), v.get("completion_tokens_usage", "N/A")]
         )
     print(tb)
-    print("Evaluation agreement with annotation:")
-    tb = PrettyTable(["name", "coverage", "accuracy", "recall", "precision", "f1"])
-    tb.float_format = ".2"
-    for k, v in results.items():
-        if k != "Annotation":
-            tb.add_row([k, v["labelled_coverage"], v["accuracy"], v["recall"], v["precision"], v["f1"]])
-    print(tb)
+    if not dataset["label"].isna().all():
+        print("Evaluation agreement with annotation:")
+        tb = PrettyTable(["name", "coverage", "accuracy", "recall", "precision", "f1"])
+        tb.float_format = ".2"
+        for k, v in results.items():
+            if k != "Annotation":
+                tb.add_row([k, v["labelled_coverage"], v["accuracy"], v["recall"], v["precision"], v["f1"]])
+        print(tb)
 
 
 if __name__ == "__main__":
