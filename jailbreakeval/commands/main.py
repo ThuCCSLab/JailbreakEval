@@ -191,8 +191,6 @@ def main(
                 }
 
             del evaluator
-            gc.collect()
-            torch.cuda.empty_cache()
         except Exception as e:
             logger.error(f"Failed to evaluate {evaluator_id}: {e}")
         finally:
