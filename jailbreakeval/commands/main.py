@@ -92,20 +92,19 @@ def load_csv_dataset(filepath):
 
     if "label" not in dataset:
         dataset["label"] = pd.NA
-        dataset["label"] = dataset["label"].astype("boolean")
     return dataset
 
 
 def eval_metrics(labels, preds):
-    labels = pd.Series(labels, dtype="boolean")
     preds = pd.Series(preds, dtype="boolean")
     non_na_preds = ~preds.isna()
-    non_na_labels = ~labels.isna()
-    non_na_intersected = non_na_labels & non_na_preds
     metrics = {
         "coverage": non_na_preds.mean(),
         "jailbreak_ratio": preds[non_na_preds].mean(),
     }
+    labels = pd.Series(labels, dtype="boolean")
+    non_na_labels = ~labels.isna()
+    non_na_intersected = non_na_labels & non_na_preds
     if any(non_na_labels):
         metrics["labelled_coverage"] = non_na_intersected.sum() / non_na_labels.sum()
     if any(non_na_intersected):
@@ -135,20 +134,23 @@ def main(
         config = yaml.safe_load(Path(config_filepath).read_text())
     else:
         config = {}
-
     dataset = load_csv_dataset(dataset_filepath)
-
+    hasLabels = not dataset["label"].isna().all()
     labels = dataset["label"].astype("O").replace(pd.NA, None).to_list()
 
-    results = {
-        "Annotation": {
-            "preds": labels,
-            **eval_metrics(
-                pd.Series([None] * len(dataset["label"]), dtype="boolean"),
-                dataset["label"],
-            ),
+    results = (
+        {
+            "Annotation": {
+                "preds": labels,
+                **eval_metrics(
+                    pd.Series([None] * len(dataset["label"]), dtype="boolean"),
+                    dataset["label"],
+                ),
+            }
         }
-    }
+        if hasLabels
+        else {}
+    )
 
     for evaluator_id in evaluators:
         try:
@@ -209,13 +211,14 @@ def main(
             + [v.get("time_ms", "N/A"), v.get("prompt_tokens_usage", "N/A"), v.get("completion_tokens_usage", "N/A")]
         )
     print(tb)
-    print("Evaluation agreement with annotation:")
-    tb = PrettyTable(["name", "coverage", "accuracy", "recall", "precision", "f1"])
-    tb.float_format = ".2"
-    for k, v in results.items():
-        if k != "Annotation":
-            tb.add_row([k, v["labelled_coverage"], v["accuracy"], v["recall"], v["precision"], v["f1"]])
-    print(tb)
+    if hasLabels:
+        print("Evaluation agreement with annotation:")
+        tb = PrettyTable(["name", "coverage", "accuracy", "recall", "precision", "f1"])
+        tb.float_format = ".2"
+        for k, v in results.items():
+            if k != "Annotation":
+                tb.add_row([k, v["labelled_coverage"], v["accuracy"], v["recall"], v["precision"], v["f1"]])
+        print(tb)
 
 
 if __name__ == "__main__":
