@@ -8,23 +8,10 @@
 
 [![tests status](https://github.com/ThuCCSLab/JailbreakEval/actions/workflows/tests.yaml/badge.svg)](https://github.com/ThuCCSLab/JailbreakEval/actions/workflows/tests.yaml)
 [![paper](https://img.shields.io/badge/arxiv-2406.09321-b31b1b)](https://arxiv.org/abs/2406.09321)
+[![NDSS'25 Best Technical Poster](https://img.shields.io/badge/NDSS'25-Best_Techinical_Poster-blue)](https://www.ndss-symposium.org/wp-content/uploads/2025-poster-19.pdf)
 [![page views count](https://badges.toozhao.com/badges/01HYS7AXHZQ8HX64H1K1F3379K/blue.svg)](https://github.com/ThuCCSLab/JailbreakEval)
 
 ## Introduction
-
-### **2025-01-25** - Version 0.0.3
-#### 🔧 **New Features**
-- Added support for two new datasets: [`Safe-RLHFmini`](https://github.com/ThuCCSLab/JailbreakEval/blob/main/data/Safe-RLHFmini.csv) and [`JAILJUDGEmini`](https://github.com/ThuCCSLab/JailbreakEval/blob/main/data/JAILJUDGEmini.csv). For the original details, please visit [Safe-RLHF](https://github.com/PKU-Alignment/safe-rlhf) and [JAILJUDGE](https://github.com/PKU-Alignment/safe-rlhf).
-- Add support for LlamaGuard3.
-- Add evaluation results on the new dataset.
-
-### **2024-12-11** - Version 0.0.2
-#### 🆕 **Adapted the framework to support the latest version of `transformers`**
-
-### **2024-05-25** - Version 0.0.1
-#### 🚀 **Initial Release**
-- Launched `JailbreakEval`, an integrated toolkit for evaluating jailbreak attempts.
-- Included core functionalities with support for benchmarking using human-labeled datasets.
 
 https://github.com/ThuCCSLab/JailbreakEval/assets/26323729/4d1a6cbc-8ae5-4109-85c8-3ce47f658fdb
 
